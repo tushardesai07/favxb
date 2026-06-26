@@ -1608,3 +1608,263 @@
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-14px) rotate(0.5deg); }
 }
+
+/* ============================================================
+   HAMBURGER BUTTON
+   ============================================================ */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.hamburger-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+/* X animation */
+.hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   GLOBAL RESPONSIVE: reduce giant section paddings on mobile
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar-capsule {
+    top: 16px;
+    width: calc(100% - 32px);
+    padding: 10px 16px;
+    gap: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .navbar-links {
+    /* hidden by default on mobile */
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 0 4px;
+  }
+
+  .navbar-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 15px;
+    padding: 10px 4px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  /* Logo */
+  .logo-pill {
+    padding: 10px 20px;
+    font-size: 22px;
+  }
+
+  /* Hero */
+  .hero-section {
+    min-height: 100svh;
+  }
+
+  .hero-content {
+    padding: 0 20px;
+    margin-top: 80px;
+  }
+
+  /* About */
+  .about-section {
+    padding: 80px 5% 60px;
+  }
+
+  /* Experience */
+  .experience-section {
+    padding: 60px 5% 80px;
+  }
+
+  .experience-card {
+    height: 380px;
+  }
+
+  /* Destinations */
+  .destinations-section {
+    padding: 80px 5% 60px;
+  }
+
+  .dest-card-overlay-style {
+    height: 340px;
+  }
+
+  /* Packages */
+  .packages-section {
+    padding: 80px 5%;
+  }
+
+  .package-img-container {
+    height: 220px;
+  }
+
+  /* Why section */
+  .why-section {
+    padding: 60px 5%;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: 80px 5%;
+  }
+
+  .testimonial-card {
+    padding: 32px 24px;
+  }
+
+  /* Blog */
+  .blog-section {
+    padding: 80px 5%;
+  }
+
+  .blog-img-wrap {
+    height: 240px;
+  }
+
+  .blog-content {
+    padding: 24px;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 80px 5% 100px;
+  }
+
+  /* Vibe */
+  .vibe-section {
+    padding: 70px 0 60px;
+  }
+
+  .vibe-photo {
+    flex: 0 0 160px;
+    height: 220px;
+  }
+
+  /* Footer */
+  .footer-section {
+    padding: 56px 5% 32px;
+  }
+
+  /* Section title sizes */
+  .section-title-large {
+    font-size: clamp(32px, 8vw, 52px);
+  }
+
+  .section-title-center {
+    font-size: clamp(28px, 7vw, 44px);
+  }
+
+  .about-title {
+    font-size: clamp(32px, 8vw, 52px);
+  }
+
+  .why-heading {
+    font-size: clamp(28px, 7vw, 44px);
+  }
+}
+
+/* ============================================================
+   SMALL PHONES  ≤ 480px
+   ============================================================ */
+@media (max-width: 480px) {
+  .about-section  { padding: 72px 4% 56px; }
+  .experience-section { padding: 56px 4% 72px; }
+  .destinations-section { padding: 72px 4% 56px; }
+  .packages-section { padding: 72px 4%; }
+  .why-section { padding: 56px 4%; }
+  .testimonials-section { padding: 72px 4%; }
+  .blog-section { padding: 72px 4%; }
+  .faq-section { padding: 72px 4% 80px; }
+  .vibe-strip { padding: 0 4% 8px; }
+  .footer-section { padding: 48px 4% 28px; }
+
+  .experience-card { height: 320px; }
+  .dest-card-overlay-style { height: 280px; }
+  .package-img-container { height: 200px; }
+  .package-info { padding: 24px 20px; }
+  .blog-img-wrap { height: 200px; }
+  .blog-content { padding: 20px; }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .stat-divider { display: none; }
+
+  .book-btn {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   TABLET  769px – 1023px
+   ============================================================ */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .about-section  { padding: 100px 6% 70px; }
+  .experience-section { padding: 70px 6% 100px; }
+  .destinations-section { padding: 100px 6% 70px; }
+  .packages-section { padding: 100px 6%; }
+  .why-section { padding: 80px 6%; }
+  .testimonials-section { padding: 120px 6%; }
+  .blog-section { padding: 100px 6%; }
+  .faq-section { padding: 100px 6% 120px; }
+  .footer-section { padding: 64px 6% 32px; }
+
+  .experience-card { height: 460px; }
+  .dest-card-overlay-style { height: 380px; }
+
+  .navbar-links { gap: 28px; }
+  .nav-link { font-size: 16px; }
+  .logo-pill { padding: 12px 26px; font-size: 26px; }
+
+  /* 2-column experience/destination grid on tablet */
+  .experience-grid,
+  .destinations-grid-4,
+  .packages-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

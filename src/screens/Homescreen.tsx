@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Homescreen.css'
+import Chatbot from './Chatbot'
 
 // Import the generated background image
 import heroBg from '../assets/hero_background.png'
 
 const Homescreen: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <div className="homescreen-container">
       {/* 1. Glassmorphic Navigation Header */}
@@ -16,12 +19,22 @@ const Homescreen: React.FC = () => {
           </div>
           <span className="logo-tagline">experience is everything</span>
         </div>
-        <nav className="navbar-links">
-          <a href="#tours" className="nav-link">Tours</a>
-          <a href="#destinations" className="nav-link">Destinations</a>
-          <a href="#blogs" className="nav-link">Blogs</a>
-          <a href="#about" className="nav-link">About</a>
-          <a href="#contact" className="nav-link">Contact</a>
+
+        {/* Hamburger button — mobile only */}
+        <button
+          className={`hamburger-btn${menuOpen ? ' open' : ''}`}
+          aria-label="Toggle navigation"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span /><span /><span />
+        </button>
+
+        <nav className={`navbar-links${menuOpen ? ' mobile-open' : ''}`}>
+          <a href="#tours"         className="nav-link" onClick={() => setMenuOpen(false)}>Tours</a>
+          <a href="#destinations"  className="nav-link" onClick={() => setMenuOpen(false)}>Destinations</a>
+          <a href="#blogs"         className="nav-link" onClick={() => setMenuOpen(false)}>Blogs</a>
+          <a href="#about"         className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#contact"       className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
       </header>
 
@@ -649,6 +662,9 @@ const Homescreen: React.FC = () => {
           <p className="copyright">© 2026 Fabxp. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* Floating Chatbot Widget */}
+      <Chatbot />
     </div>
   )
 }
